@@ -21,7 +21,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    fetch("http://127.0.0.1:8000/dj-rest-auth/user/", {
+    fetch("dj-rest-auth/user/", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -46,7 +46,7 @@ class Profile extends Component {
     this.emailToggle();
     this.setState({ email: newEmail });
 
-    fetch(`http://127.0.0.1:8000/api/users/${this.state.id}/`, {
+    fetch(`api/users/${this.state.id}/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -72,7 +72,7 @@ class Profile extends Component {
 
   submitPassword(oldpassword, password1, password2) {
     this.passwordToggle();
-    fetch("http://127.0.0.1:8000/dj-rest-auth/password/change/", {
+    fetch("dj-rest-auth/password/change/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

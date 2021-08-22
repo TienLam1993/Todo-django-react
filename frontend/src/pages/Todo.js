@@ -27,7 +27,7 @@ class Todo extends Component {
 
   async refreshList() {
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/todos/", {
+      const response = await fetch("api/todos/", {
         headers: {
           Authorization: "Token " + localStorage.getItem("token"),
         },
@@ -53,7 +53,7 @@ class Todo extends Component {
     this.toggle();
     try {
       if (item.id) {
-        await fetch(`http://127.0.0.1:8000/api/todos/${item.id}/`, {
+        await fetch(`api/todos/${item.id}/`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -65,7 +65,7 @@ class Todo extends Component {
         return this.refreshList();
       }
 
-      await fetch("http://127.0.0.1:8000/api/todos/", {
+      await fetch("api/todos/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -82,7 +82,7 @@ class Todo extends Component {
 
   async handleDelete(item) {
     try {
-      await fetch(`http://127.0.0.1:8000/api/todos/${item.id}/`, {
+      await fetch(`api/todos/${item.id}/`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

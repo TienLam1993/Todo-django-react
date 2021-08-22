@@ -28,13 +28,12 @@ function App() {
   }, []);
 
   function handleLogout() {
-    // Set the token to null
-    fetch("http://127.0.0.1:8000/dj-rest-auth/logout/", {
+    fetch("dj-rest-auth/logout/", {
       method: "POST",
     }).then(() => {
       setIsAuthenticated(false);
       localStorage.removeItem("token");
-      history.push("/");
+      history.push("/login");
     });
   }
 
