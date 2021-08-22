@@ -1,0 +1,9 @@
+# Python virtual environment
+/env
+
+## Django
+*.pyc
+*.log
+**/__pycache__
+**/migrations
+db.sqlite3
