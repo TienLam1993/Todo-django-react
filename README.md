@@ -1,19 +1,32 @@
 # todo-django-react
 A simple to-do app with django back-end and react front-end
 
-### Frontend developement workflow
+### Workflow
+*Note that I use window powershell. If you use Linux, there might be something different*.
 
-```
-  cd frontend
-  npm install
-  npm run build
-```
-### Backend developement workflow
+#### Frontend developement
 
-```
-  python -m venv env
-  python env/scripts/activate.ps1
-  pip install -r requirements.txt
-  cd backend
-  python manage.py runserver
-```
+
+
+    cd frontend
+
+    npm install
+
+    npm run build
+  
+#### Backend developement
+
+
+    python -m venv env               
+
+    python env/scripts/activate.ps1
+
+    pip install -r requirements.txt
+
+    cd backend
+    
+    python manage.py makemigrations todo
+    
+    python manage.py migrate
+
+    python manage.py runserver
