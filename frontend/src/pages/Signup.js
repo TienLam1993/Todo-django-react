@@ -3,11 +3,13 @@ import { useHistory } from "react-router-dom";
 
 import { Form, FormGroup, Label, Input, UncontrolledAlert } from "reactstrap";
 import LoaderButton from "../components/LoaderButton";
+import { useAuthContext } from "../context/authContext";
 
 import "../styles/Signup.css";
 
 export default function Signup() {
   const [isLoading, setIsLoading] = useState(false); // give user feedback that the app is working while logging in
+  const { setIsAuthenticated } = useAuthContext();
   const history = useHistory(); // use to redirect after logged in
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -50,6 +52,7 @@ export default function Signup() {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.key);
+        setIsAuthenticated(true);
         history.push("/");
       } else {
         const errors = {};

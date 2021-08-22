@@ -30,11 +30,10 @@ function App() {
   function handleLogout() {
     fetch("dj-rest-auth/logout/", {
       method: "POST",
-    }).then(() => {
-      setIsAuthenticated(false);
-      localStorage.removeItem("token");
-      history.push("/login");
     });
+    setIsAuthenticated(false);
+    localStorage.removeItem("token");
+    history.push("/login");
   }
 
   return (
