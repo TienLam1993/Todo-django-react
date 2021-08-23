@@ -28,12 +28,14 @@ function App() {
   }, []);
 
   function handleLogout() {
-    fetch("dj-rest-auth/logout/", {
-      method: "POST",
-    });
     setIsAuthenticated(false);
     localStorage.removeItem("token");
-    history.push("/login");
+
+    fetch("dj-rest-auth/logout/", {
+      method: "POST",
+    })
+    .then(history.push("/login"))
+    .catch(error => alert(error));
   }
 
   return (

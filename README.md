@@ -30,3 +30,8 @@ A simple to-do app with django back-end and react front-end
     python manage.py migrate
 
     python manage.py runserver
+
+* These are for developement. If you want to deploy, you need to change some settings. 
+* Demo: (https://lamgihomnay.herokuapp.com/)
+
+
